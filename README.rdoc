@@ -19,6 +19,11 @@ Planned:
 * Extraction of class, module, and method contents
 * Heuristics, as I find them interesting
 
+Known Issues:
+* Delve is stupid when it comes to mixins; you can't try to lookup
+  a method that's mixed into a class, for instance, by TheClass#the_method,
+  you need to look it up by TheMixin#the_method
+
 == Example
 
 Really, you should see examples/, but here's a quick way to look up
