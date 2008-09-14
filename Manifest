@@ -1,3 +1,4 @@
+examples/ad_hoc.rb
 examples/comment.rb
 examples/example_helper.rb
 examples/monkey_patches/monkey_patch_1.rb
