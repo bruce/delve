@@ -12,13 +12,35 @@ Documentation really doesn't exist yet.  Feel free to look at +examples/+ or
 the tests for now.
 
 Supports:
-* Seeing the filename & line number where classes, modules, and methods are defined
+* Seeing the filename, line number, and associated comment where classes, modules, and methods are defined
   * Including when they're reopened
-* Seeing the associated comment (documentation) where classes, modules, and methods
 
 Planned:
 * Extraction of class, module, and method contents
 * Heuristics, as I find them interesting
+
+== Example
+
+Really, you should see examples/, but here's a quick way to look up
+information on something, using ActiveRecord as an example.
+
+  require 'activerecord'
+  
+  require 'delve/required'
+
+  # This returns an Array of matching results
+  # You can look for:
+  # * Constants::Like::This
+  # * Some::Constants#instance_method
+  # * A::Class.method_too
+  # * Or::A::Class::method_invoked_old_skool_like_this
+  results = Delve['ActiveRecord::Base.find']
+
+  # For each time the method was defined, show the related comment
+  results.each do |result|
+    puts result.comment
+    # You could check its 'filename' or 'line', too.
+  end
 
 == Requirements
 
